@@ -154,7 +154,7 @@ detect_os() {
 
 # Get latest release version from GitHub / 从GitHub获取最新版本
 get_latest_version() {
-    local repo="yuaotian/go-cursor-help"
+    local repo="whjstc/go-cursor-help"
     curl -s "https://api.github.com/repos/${repo}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
 }
 
@@ -192,7 +192,7 @@ install_binary() {
     VERSION=$(get_latest_version)
     VERSION_WITHOUT_V=${VERSION#v}  # Remove 'v' from version number
     BINARY_NAME="cursor_id_modifier_${VERSION_WITHOUT_V}_${OS}_$(get_arch)"
-    REPO="yuaotian/go-cursor-help"
+    REPO="whjstc/go-cursor-help"
     DOWNLOAD_URL="https://github.com/${REPO}/releases/download/${VERSION}/${BINARY_NAME}"
     TMP_DIR=$(mktemp -d)
     FINAL_BINARY_NAME="cursor-id-modifier"
